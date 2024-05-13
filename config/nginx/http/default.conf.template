@@ -1,0 +1,61 @@
+# This file also exposes the services at the top level, without relying on server names, so the services can be tested
+# properly in localhost without the need of DNS resolution.
+
+# Names are passed as subdirectories
+
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    http2 on;
+
+    server_name _;
+    access_log /var/log/nginx/root.access.log main;
+
+    location /assets {
+        rewrite ^/assets/(.*) /$1 break;
+        proxy_pass http://falcon-assets-manager;
+        proxy_pass_request_headers on;
+        proxy_redirect off;
+        proxy_set_header Host $host;
+    }
+
+    location /ui {
+        rewrite ^/ui/(.*) /$1 break;
+        proxy_pass http://falcon-render;
+        proxy_pass_request_headers on;
+        proxy_redirect off;
+        proxy_set_header Host $host;
+    }
+
+    location /reporter {
+        rewrite ^/reporter/(.*) /$1 break;
+        proxy_pass http://falcon-reporter;
+        proxy_pass_request_headers on;
+        proxy_redirect off;
+        proxy_set_header Host $host;
+    }
+
+    location /registry {
+        rewrite ^/registry/(.*) /$1 break;
+        proxy_pass http://falcon-registry;
+        proxy_pass_request_headers on;
+        proxy_redirect off;
+        proxy_set_header Host $host;
+    }
+
+    location /director {
+        rewrite ^/director/(.*) /$1 break;
+        proxy_pass http://falcon-director;
+        proxy_pass_request_headers on;
+        proxy_redirect off;
+        proxy_set_header Host $host;
+    }
+
+    location /dashboard {
+        rewrite ^/dashboard/(.*) /$1 break;
+        proxy_pass http://falcon-dashboard:3000;
+        proxy_pass_request_headers on;
+        proxy_redirect off;
+        proxy_set_header Host $host;
+    }
+}

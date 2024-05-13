@@ -1,0 +1,13 @@
+server {
+    listen 80;
+    listen [::]:80;
+    http2 on;
+
+    server_name reporter${FALCON_SERVICES_PREFIX}${FALCON_DNS_SUFFIX};
+    access_log /var/log/nginx/reporter.access.log main;
+
+    location / {
+        proxy_pass http://falcon-reporter;
+        proxy_pass_request_headers on;
+    }
+}
