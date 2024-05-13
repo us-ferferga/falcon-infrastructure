@@ -1,0 +1,15 @@
+# GENERAL (Mandatory only production deployment)
+SERVICES_PREFIX=.falcon
+DNS_SUFFIX=.governify.io
+
+# CREDENTIALS (For different services)
+LOGIN_USER=fides
+LOGIN_PASSWORD=fides
+
+# INFRASTRUCTURE
+GOV_INFRASTRUCTURE=http://falcon-assets-manager/api/v1/public/infrastructure.yaml
+ASSETS_REPOSITORY_BRANCH=main
+INFLUX_URL=http://falcon-influx-reporter:8086
+
+# ASSETS MANAGER
+KEY_ASSETS_MANAGER_PRIVATE=fides
