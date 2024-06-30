@@ -28,7 +28,7 @@ services:
 # =========================================
   falcon-render:
     container_name: falcon-render
-    image: governify/render:develop
+    image: governify/render:v2.3.2
     # TODO: ELIMINAR
     # En un principio este contenedor parece funcionar correctamente sin el extra_hosts, pero lo dejamos aquí
     # de mientras por si acaso, para no tener problemas extraños mientras que lo único que hacemos es intentar
@@ -59,7 +59,7 @@ services:
 # =========================================
   falcon-assets-manager:
     container_name: falcon-assets-manager
-    image: governify/assets-manager:develop
+    image: governify/assets-manager:v1.5.0
     # Needed so it can access the mounted files properly
     user: root
     # TODO: ELIMINAR
@@ -93,7 +93,7 @@ services:
 # =========================================
   falcon-reporter:
     container_name: falcon-reporter
-    image: governify/reporter:develop
+    image: governify/reporter:v2.9.6
     # TODO: ELIMINAR
     # ESTE ES EL ÚNICO OBLIGATORIO DE TODOS LOS CONTENEDORES, puesto que
     # los datos de ejemplo proporcionados en fides (src/data/*.zip) vienen "hardcodeados" con "host.docker.internal"
@@ -141,7 +141,7 @@ services:
 # =========================================
   falcon-registry:
     container_name: falcon-registry
-    image: governify/registry:develop
+    image: governify/registry:v3.8.0
     # TODO: ELIMINAR
     # En un principio este contenedor parece funcionar correctamente sin el extra_hosts, pero lo dejamos aquí
     # de mientras por si acaso, para no tener problemas extraños mientras que lo único que hacemos es intentar
@@ -186,7 +186,7 @@ services:
 # =========================================
   falcon-collector-dynamic:
     container_name: falcon-collector-dynamic
-    image: governify/collector-dynamic:develop
+    image: governify/collector-dynamic:v1.3.0
     # TODO: ELIMINAR
     # En un principio este contenedor parece funcionar correctamente sin el extra_hosts, pero lo dejamos aquí
     # de mientras por si acaso, para no tener problemas extraños mientras que lo único que hacemos es intentar
@@ -234,7 +234,7 @@ services:
 # =========================================
   falcon-director:
     container_name: falcon-director
-    image: governify/director:develop
+    image: governify/director:v1.5.0
     # TODO: ELIMINAR
     # En un principio este contenedor parece funcionar correctamente sin el extra_hosts, pero lo dejamos aquí
     # de mientras por si acaso, para no tener problemas extraños mientras que lo único que hacemos es intentar
